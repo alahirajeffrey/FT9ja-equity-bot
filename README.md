@@ -27,3 +27,5 @@ This project is available for use under the MIT License.
 
 ## Link to deployed app
 `https://equity-bot-app.herokuapp.com/trades/:id`
+
+**NB** The :id params specify the number of results you would like
