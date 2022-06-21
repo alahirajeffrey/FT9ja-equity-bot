@@ -26,4 +26,6 @@ Simple bot that logs in every 5 minutes and scapes the Equity, Balance and Marke
 This project is available for use under the MIT License.
 
 ## Link to deployed app
-`https://equity-bot-app.herokuapp.com/`
+`https://equity-bot-app.herokuapp.com/trades/:id`
+
+**NB** The :id params specify the number of results you would like
