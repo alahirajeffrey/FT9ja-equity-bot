@@ -19,7 +19,7 @@ let INTERVAL = 300000
 // connect to database
 connectDatabase()
 
-console.log("app running")
+console.log("Bot running")
 
 const scrapeData = async ()=>{
 
@@ -38,24 +38,28 @@ const scrapeData = async ()=>{
         await page.fill('#server', SERVER)
         await page.click('body > div:nth-child(14) > div > div.b > button:nth-child(18)')
 
-        // scrape equity and balance data
-        const data = await page.innerText("body > div.page-block.frame.bottom > div:nth-child(3) > table > tbody > tr > td.iconed > div > span")
-        
-        // get values of balance, equity and market watch time
-        balance = data.slice(9,17)
-        equity = data.slice(31,39)
+        // scrape equity and balance data        
+        const data = await page.innerText("tr.total:nth-child(5) > td:nth-child(1) > div:nth-child(1) > span:nth-child(1)")
+
+        // clean scraped data and get values of balance, equity and market watch time
+        dataList = data.split(" ")
+
+        let balance = dataList[1]
+        let equity = dataList[3]
+
+        equityCleaned = equity.slice(0, 8)
 
         // setup query
-        const post = {balance: balance, equity: equity, market_watch_time: currentTime}
+        const post = {balance: balance, equity: equityCleaned, market_watch_time: currentTime}
 
         // save to database
         const newTrade = new TradeSchema(post)
-        const savedTrade = newTrade.save()
+        await newTrade.save()
 
         infoLogger.info("Trade data saved")
 
         // close browser
-        await browser.close()
+        //await browser.close()
 
     }catch(error){
         errorLogger.error(error)
