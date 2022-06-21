@@ -19,9 +19,9 @@ let INTERVAL = 300000
 // connect to database
 connectDatabase()
 
-const scrapeData = async ()=>{
+console.log("app running")
 
-    console.log("app running")
+const scrapeData = async ()=>{
 
     try{
 
