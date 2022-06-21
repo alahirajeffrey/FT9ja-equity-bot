@@ -21,6 +21,8 @@ connectDatabase()
 
 const scrapeData = async ()=>{
 
+    console.log("app running")
+
     try{
 
         const browser = await playwright.firefox.launch({headless:true})
