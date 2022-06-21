@@ -1,6 +1,7 @@
 const express = require('express')
 const dbConnection = require('./dbConnection')
 const Trades = require('./models')
+const cors = require('cors')
 const {errorLogger, infoLogger} = require('./logger')
 
 // set port number
@@ -8,6 +9,7 @@ const PORT = process.env.PORT || 3333
 
 // start express server
 const app = express()
+app.use(cors()) 
 
 // connect to database
 dbConnection()
