@@ -59,7 +59,7 @@ const scrapeData = async ()=>{
         infoLogger.info("Trade data saved")
 
         // close browser
-        //await browser.close()
+        await browser.close()
 
     }catch(error){
         errorLogger.error(error)
