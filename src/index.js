@@ -3,10 +3,7 @@ const connectDatabase = require('./dbConnection')
 const TradeSchema = require('./models')
 require('dotenv').config({path: require('find-config')('.env')})
 const {errorLogger, infoLogger} = require('./logger')
-
-// get current time
 const date = new Date()
-const currentTime = date.toTimeString()
 
 // load environmental variables
 const PASSWORD = process.env.PASSWORD
@@ -22,6 +19,9 @@ connectDatabase()
 console.log("Bot running")
 
 const scrapeData = async ()=>{
+
+    // get current time
+    const currentTime = date.toTimeString()
 
     try{
 
