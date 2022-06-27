@@ -1,4 +1,4 @@
-const playwright = require('playwright')
+const playwright = require('playwright-firefox')
 const connectDatabase = require('./dbConnection')
 const TradeSchema = require('./models')
 require('dotenv').config({path: require('find-config')('.env')})
@@ -15,8 +15,6 @@ let INTERVAL = 300000
 // connect to database
 connectDatabase()
 
-console.log("Bot running")
-
 const scrapeData = async ()=>{
 
     // get current time
@@ -25,7 +23,7 @@ const scrapeData = async ()=>{
 
     try{
 
-        console.log("Beginnig")
+        console.log("Bot running")
         const browser = await playwright.firefox.launch({headless:true})
         const context = await browser.newContext()
         const page = await context.newPage()
