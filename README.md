@@ -19,6 +19,15 @@ Simple bot that logs in every 5 minutes and scapes the Equity, Balance and Marke
 - Create .env file and add environment variables using .env.sample as a guide
 - Open terminal and type `npm start` to start server in development mode
 
+## Code Info
+The code for this project can be found in the src folder
+- [dbConnection.js](https://github.com/alahirajeffrey/FT9ja-equity-bot/blob/main/src/dbConnection.js) contains the script to connnect the app to a databse
+- [index.js](https://github.com/alahirajeffrey/FT9ja-equity-bot/blob/main/src/index.js) contains the equity bot that scrapes the information
+- [logger.js](https://github.com/alahirajeffrey/FT9ja-equity-bot/blob/main/src/logger.js) helps the bot log information to the logs folder
+- [models.js](https://github.com/alahirajeffrey/FT9ja-equity-bot/blob/main/src/models.js) contains the mongodb model
+- [server.js](https://github.com/alahirajeffrey/FT9ja-equity-bot/blob/main/src/models.js) contains the server that serves the react frontend app the required information 
+
+
 ## Author
 [Alahira Jeffrey]((https://github.com/alahirajeffrey))
 
