@@ -37,9 +37,9 @@ const scrapeData = async ()=>{
         await page.type('#password', PASSWORD)
         await page.fill('#server', SERVER)
         await page.click('body > div:nth-child(14) > div > div.b > button:nth-child(18)')
-
+        
         // scrape equity and balance data        
-        const data = await page.innerText("tr.total:nth-child(5) > td:nth-child(1) > div:nth-child(1) > span:nth-child(1)")
+        const data = await page.innerText("tr.total:nth-child(4) > td:nth-child(1) > div:nth-child(1) > span:nth-child(1)")
 
         // clean scraped data and get values of balance, equity and market watch time
         dataList = data.split(" ")
@@ -51,7 +51,7 @@ const scrapeData = async ()=>{
 
         // setup query
         const post = {balance: balance, equity: equityCleaned, market_watch_time: currentTime}
-
+        console.log(post)
         // save to database
         const newTrade = new TradeSchema(post)
         await newTrade.save()
