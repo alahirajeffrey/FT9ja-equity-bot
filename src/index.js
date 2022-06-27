@@ -51,11 +51,11 @@ const scrapeData = async ()=>{
 
         // setup query
         const post = {balance: balance, equity: equityCleaned, market_watch_time: currentTime}
-        console.log(post)
+        
         // save to database
         const newTrade = new TradeSchema(post)
         await newTrade.save()
-
+        
         infoLogger.info("Trade data saved")
 
         // close browser
