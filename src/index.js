@@ -30,6 +30,7 @@ const scrapeData = async ()=>{
         const page = await context.newPage()
 
         // go to website
+        console.log("Opening page")
         const result = await page.goto("https://trade.mql5.com/trade?servers=")
 
         //login to metatrader account
@@ -51,12 +52,14 @@ const scrapeData = async ()=>{
 
         // setup query
         const post = {balance: balance, equity: equityCleaned, market_watch_time: currentTime}
+        console.log(post)
         
         // save to database
         const newTrade = new TradeSchema(post)
         await newTrade.save()
         
         infoLogger.info("Trade data saved")
+        console.log("Trade saved")
 
         // close browser
         await browser.close()
